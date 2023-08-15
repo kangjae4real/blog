@@ -34,11 +34,27 @@ const config: GatsbyConfig = {
             title: `About`,
             slug: `/about`,
           },
+          {
+            title: `Career`,
+            slug: `/career`,
+          },
+          {
+            title: `Tech Stack`,
+            slug: `/tech-stack`,
+          },
         ],
         externalLinks: [
           {
+            name: `Github`,
+            url: `https://www.github.com/kangjae4real`,
+          },
+          {
             name: `Instagram`,
             url: `https://www.instagram.com/kka_ng__`,
+          },
+          {
+            name: `LinkedIn`,
+            url: `https://www.linkedin.com/in/kangjae-choi-15898925a`,
           },
         ],
       },
