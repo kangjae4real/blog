@@ -8,12 +8,11 @@ const config: GatsbyConfig = {
     // You can overwrite values here that are used for the SEO component
     // You can also add new values here to query them like usual
     // See all options: https://github.com/LekoArts/gatsby-themes/blob/main/themes/gatsby-theme-minimal-blog/gatsby-config.mjs
-    siteTitle: `Kangjae.dev`,
-    siteTitleAlt: `Kangjae.dev`,
-    siteHeadline: `Kangjae.dev`,
-    siteUrl: `https://github.com/kangjae4real/blog`,
+    siteTitle: `kangjae.dev`,
+    siteTitleAlt: `kangjae.dev`,
+    siteHeadline: `kangjae.dev`,
+    siteUrl: `https://kangjae.dev`,
     siteDescription: `Kangjae Personal Dev, Tech, Daily blog`,
-    siteImage: `/banner.jpg`,
     siteLanguage: `ko`,
     author: `@kangjae4real`,
   },
@@ -122,7 +121,7 @@ const config: GatsbyConfig = {
   }
 }`,
             output: `rss.xml`,
-            title: `Kangjae.dev`,
+            title: `kangjae.dev rss`,
           },
         ],
       },
