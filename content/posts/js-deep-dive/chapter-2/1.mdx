@@ -1,0 +1,42 @@
+---
+title: 2장
+date: 2023-08-30
+tags:
+  - Dev
+  - Study
+  - JS Deep Dive
+---
+
+## 표준화
+마이크로소프트는 자사 브라우저 "인터넷 익스플로러"의 JavaScript의 파생버전인 "JScript"를 탑재하게 된다.
+경쟁사인 넷스케이프와 다른 노선을 타기로 한 것이다. 두 회사는 자사의 브라우저 경쟁력을 높이기 위해 자사 브라우저에 의존하는 기능을 추가했고,
+이는 "크로스 브라우징" 이슈를 만들게 된다. 이에 넷스케이프는 ECMA 인터네셔널의 표준화를 요청하게 된다.
+이윽고 "ECMA-262" 라는 이름으로 초판 사양이 완성되게 된다. 이후 계속해서 기능을 추가하며 표준 사양이 업데이트되게 된다.
+
+|버전|출시 연도|특징|
+|-----|---|-----|
+|ES1|1997|초판|
+|ES2|1998|ISO/IEC 16262 국제 표준과 동일한 규격을 사용|
+|ES3|1999|정규표현식, ```try ... catch```|
+|ES5|2009|HTML5와 함께 출현한 표준안<br/>JSON, ```strict mode```, 접근자 프로퍼티, 프로퍼티 어트리뷰트 제어, 향상된 배열<br/>조작 기능(forEach, map, filter, reduce, some, every)|
+|ES6(ECMAScript 2015)|2015|let/const, 클래스, 화살표 함수, 템플릿 리터럴, 구조분해할당, 스프레드 문법<br/>rest 파라미터, 심벌, Map/Set, 이터러블, ```for ... of```<br/>제너레이터, Proxy, 모듈 import/export|
+|ES7(ECMAScript 2016)|2016|지수(**) 연산자, ```Array.prototype.includes```, ```String.prototype.includes```|
+|ES8(ECMAScript 2017)|2017|async/await, Object 정적 메서드(```Object.values```, ```Object.entries```,<br/>```Object.getOwnPropertyDescriptors```)|
+|ES9(ECMAScript 2018)|2018|Object rest/spread 프로퍼티, ```Promise.prototype.finally```<br/>async generator, ```for await ... of```|
+|ES10(ECMAScript 2019)|2019|```Object.fromEntries```, ```Array.prototype.flat```<br/>```Array.prototype.flatMap```, optional catch binding|
+|ES11(ECMAScript 2020)|2020|```String.prototype.matchAll```, ```Bigint.globalThis```<br/>```Promise.allSettled```, ```null``` 병합 연산자, 옵셔널 체이닝 연산자<br/>```for ... in enumeration order```|
+
+## Ajax
+1999년, 자바스크립트를 이용하여 비동기 통신을 할 수 있는 기능인 Ajax(Asynchronous Javascript and XML)가 ```XMLHttpRequest``` 이라는 이름으로 등장했다.
+
+이전의 웹페이지는 브라우저가 서버로부터 전체 HTML 문서를 받아 렌더링을 했기에 성능적으로 불리했으나, <br />
+Ajax의 등장으로 웹페이지에서 변경이 필요한 부분만 한정적으로 렌더링을 할 수 있게 되었다. <br />
+이로써 브라우저도 데스크톱 애플리케이션과 비슷한 성능을 가질 수 있게 되었다.
+
+## Node.js
+Node.js는 구글 V8 자바스크립트 엔진으로 빌드된 자바스크립트 런타임이다. <br />
+Node.js는 브라우저에서만 실행되던 자바스크립트를 브라우저 외에 환경에서도 동작할 수 있도록 브라우저에서 독립시킨 실행환경이다. <br />
+모듈, 파일 시스템, HTTP 등 빌트인(Built-in) API를 제공한다. <br />
+
+Node.js는 비동기 I/O를 지원하며 단일 스레드 이벤트 루프를 기반으로 동작함으로써 요청 처리 성능이 좋다. <br />
+따라서, Node.js는 데이터를 실시간으로 처리하기 위해 I/O가 빈번하게 발생하는 SPA(Single Page Application)에 적합하다.
