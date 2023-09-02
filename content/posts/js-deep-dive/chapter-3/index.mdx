@@ -1,0 +1,26 @@
+---
+title: JS Deep Dive 3장
+date: 2023-08-31
+tags:
+  - Dev
+  - Study
+  - JS Deep Dive
+---
+
+import Image from "../../../components/Image";
+
+## JavaScript / ECMAScript
+
+우리가 주의해야 할 점이 있다. 브라우저와 Node.js는 서로 용도가 다르다는 점이다. <br />
+브라우저는 HTML, CSS, 자바스크립트를 브라우저 화면에 렌더링 하는 것이 주된 목적이지만, <br />
+Node.js는 브라우저 외부에서 자바스크립트 실행환경을 제공하는것이 주된 목적이다. <br />
+따라서 자바스크립트 코어인 ECMAScript를 실행할 수 있지만 브라우저와 Node.js에서 <br />
+ECMAScript 이외에 추가로 제공하는 기능은 호환되지 않는다.
+
+<Image caption="브라우저와 Node.js 환경">
+  ![JS-ECMA](./js-ecma.webp)
+</Image>
+
+|브라우저|Node.js|
+|-----|-----|
+|ECMAScript, [클라이언트 사이드 Web API](https://developer.mozilla.org/ko/docs/Web/API)(DOM, BOM<br/>Canvas, XMLHttpRequest, fetch, requestAnimationFrame<br/>SVG, Web Storage, Web Component, Web Worker)|ECMAScript, [Node.js 고유의 API](https://nodejs.org/dist/latest/docs/api)(process, fs, buffer, stream, v8)|
