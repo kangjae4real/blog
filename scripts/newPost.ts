@@ -1,36 +1,66 @@
-const fs = require("fs");
-const readline = require("readline");
+import { Command } from "commander";
+import fs from "fs";
+import dayjs from "dayjs";
 
-// Title, Date, Tags is required field
-// Description, defer, banner, canonicalUrl is optional field
+const program = new Command();
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
+interface Options {
+  filePath?: string;
+  fileName?: string;
+  title: string;
+  date?: string;
+  tags?: string[];
+}
 
-const requiredField = ["title", "date", "tags"];
-const optionalField = ["description", "defer", "banner", "canonicalUrl"];
-const inputMap: { [key: string]: string } = {};
+program
+  .option("-f, --filePath <path>", "file path")
+  .option("-fn, --fileName <name>", "file name")
+  .requiredOption("-t, --title <title>", `you must add "title" field.`)
+  .option("-d, --date <date>", "date")
+  .option("-tg, --tags <tags...>");
 
-const getInput = (field: string) => {
-  return new Promise((resolve, reject) => {
-    console.log(`Type new post ${field}: `);
+program.parse();
 
-    rl.on("line", (line: string) => {
-      if (line) {
-        resolve(line);
-        rl.close();
-      } else {
-        reject(new Error(`${field} is undefined.`));
-      }
-    });
-  });
-};
+const { filePath, fileName, title, date, tags } = program.opts<Options>();
 
-requiredField.forEach(async (field) => {
-  const line = await getInput(field);
-  console.log(line);
-});
+const getTags = (tags: Options["tags"]) => {
+  if (!tags) {
+    return "";
+  }
 
-console.log("inputMap: ", inputMap);
+  const tagsTemplate = tags.map((tag, index) => `${index ? "\t" : "\r\t"}- ${tag}`).join("\n");
+
+  return `tags: ${tagsTemplate}`;
+}
+
+const getFilePathWithFileName = (filePath: Options["filePath"], fileName: Options["fileName"]) => {
+  const name = fileName ?? "index.mdx";
+
+  if (!filePath) {
+    return `./content/posts/${name}`
+  }
+
+  return `./content/posts/${filePath}/${fileName ?? "index.mdx"}`;
+}
+
+const getDate = (date: Options["date"]) => {
+  const now = dayjs().format("YYYY-MM-DD");
+
+  if (!date) {
+    return now;
+  }
+
+  return dayjs(date).format("YYYY-MM-DD");
+}
+
+const template = `---
+title: ${title}
+date: ${getDate(date)}
+${getTags(tags)}
+---`;
+
+if (filePath) {
+  fs.mkdirSync(`./content/posts/${filePath}`, { recursive: true });
+}
+
+fs.writeFileSync(getFilePathWithFileName(filePath, fileName), template);
