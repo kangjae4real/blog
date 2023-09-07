@@ -5,7 +5,6 @@
   "version": "0.1.0",
   "author": "Kangjae Choi <awpe89@gmail.com>",
   "license": "0BSD",
-  "type": "module",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
