@@ -16,6 +16,4 @@
 이 블로그는 [Repository(gatsby-starter)](https://github.com/LekoArts/gatsby-starter-minimal-blog) 를 베이스로 만들어졌습니다. <br />
 Custom UI/UX 개발을 위하여 [Shadowing](https://www.gatsbyjs.com/docs/how-to/plugins-and-themes/shadowing/) 을 이용했습니다. <br />
 
-모든 UI/UX Design 소유권은 [LekoArts](https://github.com/LekoArts) 에게 있습니다.
-
 감사합니다!
