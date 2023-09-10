@@ -19,5 +19,3 @@ Custom UI/UX 개발을 위하여 [Shadowing](https://www.gatsbyjs.com/docs/how-t
 모든 UI/UX Design 소유권은 [LekoArts](https://github.com/LekoArts) 에게 있습니다.
 
 감사합니다!
-Special thanks to @LekoArts!
-
