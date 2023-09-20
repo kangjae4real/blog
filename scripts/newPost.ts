@@ -1,6 +1,7 @@
-import { Command } from "commander";
-import fs from "fs";
-import dayjs from "dayjs";
+const commander = require("commander");
+const { Command } = commander;
+const fs = require("fs");
+const dayjs = require("dayjs")
 
 const program = new Command();
 
@@ -21,7 +22,7 @@ program
 
 program.parse();
 
-const { filePath, fileName, title, date, tags } = program.opts<Options>();
+const { filePath, fileName, title, date, tags } = program.opts() as Options;
 
 const getTags = (tags: Options["tags"]) => {
   if (!tags) {
