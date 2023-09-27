@@ -1,7 +1,7 @@
 const commander = require("commander");
 const { Command } = commander;
 const fs = require("fs");
-const dayjs = require("dayjs")
+const dayjs = require("dayjs");
 
 const program = new Command();
 
@@ -32,17 +32,17 @@ const getTags = (tags: Options["tags"]) => {
   const tagsTemplate = tags.map((tag, index) => `${index ? "\t" : "\r\t"}- ${tag}`).join("\n");
 
   return `tags: ${tagsTemplate}`;
-}
+};
 
 const getFilePathWithFileName = (filePath: Options["filePath"], fileName: Options["fileName"]) => {
   const name = fileName ?? "index.mdx";
 
   if (!filePath) {
-    return `./content/posts/${name}`
+    return `./content/posts/${name}`;
   }
 
   return `./content/posts/${filePath}/${fileName ?? "index.mdx"}`;
-}
+};
 
 const getDate = (date: Options["date"]) => {
   const now = dayjs().format("YYYY-MM-DD");
@@ -52,7 +52,7 @@ const getDate = (date: Options["date"]) => {
   }
 
   return dayjs(date).format("YYYY-MM-DD");
-}
+};
 
 const template = `---
 title: ${title}
