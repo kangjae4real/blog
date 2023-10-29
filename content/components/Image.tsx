@@ -21,15 +21,7 @@ const Image: React.FC<IImageProps> = ({ children, caption }) => {
     <Container>
       {children}
       {caption && (
-        <Caption
-          style={{
-            textAlign: "center",
-            fontStyle: "italic",
-            fontSize: "14px",
-            color: "#828282",
-            marginTop: "4px",
-          }}
-        >
+        <Caption>
           {caption}
         </Caption>
       )}
