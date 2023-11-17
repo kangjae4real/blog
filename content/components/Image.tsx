@@ -14,11 +14,12 @@ const Caption = styled.figcaption`
 interface IImageProps {
   children: React.ReactNode;
   caption?: string;
+  style?: React.CSSProperties;
 }
 
-const Image: React.FC<IImageProps> = ({ children, caption }) => {
+const Image: React.FC<IImageProps> = ({ children, caption, style }) => {
   return (
-    <Container>
+    <Container style={style}>
       {children}
       {caption && (
         <Caption>
