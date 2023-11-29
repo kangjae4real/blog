@@ -53,12 +53,16 @@ const config: GatsbyConfig = {
           },
           {
             name: `Instagram`,
-            url: `https://www.instagram.com/kka_ng__`,
+            url: `https://www.instagram.com/kangjae.choi`,
           },
           {
             name: `LinkedIn`,
-            url: `https://www.linkedin.com/in/kangjae-choi-15898925a`,
+            url: `https://www.linkedin.com/in/kangjae-choi`,
           },
+          {
+            name: `Notion`,
+            url: `https://kangjae-choi.notion.site/Frontend-Developer-6057b054263942c1a550e475fefbba90?pvs=4`,
+          }
         ],
       },
     },
