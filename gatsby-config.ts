@@ -60,8 +60,8 @@ const config: GatsbyConfig = {
             url: `https://www.linkedin.com/in/kangjae-choi`,
           },
           {
-            name: `Notion`,
-            url: `https://kangjae-choi.notion.site/Frontend-Developer-6057b054263942c1a550e475fefbba90?pvs=4`,
+            name: `Resume`,
+            url: `https://resume.kangjae.dev`,
           }
         ],
       },
