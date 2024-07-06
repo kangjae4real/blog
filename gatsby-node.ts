@@ -9,6 +9,7 @@ export const onCreateWebpackConfig: OnCreateWebpackConfigType = ({ actions }) =>
       alias: {
         "@/components": path.resolve(__dirname, "src/components"),
         "@/lib/utils": path.resolve(__dirname, "src/lib/utils"),
+        "@/lib/pages": path.resolve(__dirname, "src/lib/pages"),
       },
     },
   });
