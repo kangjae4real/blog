@@ -1,5 +1,6 @@
 import React from "react";
-import { HeadFC, PageProps } from "gatsby";
+import { PageProps } from "gatsby";
+import SEO from "@/components/seo";
 
 const IndexPage: React.FC<PageProps> = () => {
   return <div>Index Page</div>;
@@ -7,4 +8,4 @@ const IndexPage: React.FC<PageProps> = () => {
 
 export default IndexPage;
 
-export const Head: React.FC<HeadFC> = () => <title>Home</title>;
+export const Head = () => <SEO title="Kangjae Blog" />;
