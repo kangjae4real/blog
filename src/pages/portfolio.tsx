@@ -3,8 +3,12 @@ import { HeadFC, PageProps } from "gatsby";
 import PageLayout from "@/components/layouts/page-layout";
 import SEO from "@/components/seo";
 
-const PortfolioPage: React.FC<PageProps> = () => {
-  return <PageLayout>Portfolio.</PageLayout>;
+const PortfolioPage: React.FC<PageProps> = ({ location, data: pageData }) => {
+  return (
+    <PageLayout location={location} pageData={pageData}>
+      Portfolio.
+    </PageLayout>
+  );
 };
 
 export default PortfolioPage;
