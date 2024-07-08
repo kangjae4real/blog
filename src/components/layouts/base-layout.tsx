@@ -18,9 +18,9 @@ interface BaseLayoutProps extends React.HTMLAttributes<HTMLDivElement>, VariantP
   children: React.ReactNode;
 }
 
-const BaseLayout: React.FC<BaseLayoutProps> = ({ children, className, size }) => {
+const BaseLayout: React.FC<BaseLayoutProps> = ({ children, className, size, ...props }) => {
   return (
-    <div className={cn(baseLayoutVariants({ size }), className)}>
+    <div className={cn(baseLayoutVariants({ size }), className)} {...props}>
       <div className="h-full w-full">{children}</div>
     </div>
   );

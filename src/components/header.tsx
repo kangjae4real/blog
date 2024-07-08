@@ -14,21 +14,12 @@ import { PageLayoutProps } from "@/components/layouts/page-layout";
 
 const headerVariants = cva("w-full h-14 px-4 md:px-0 flex justify-between items-center border-b");
 
-const navigationItemVariants = cva("", {
-  variants: {
-    itemVariant: {
-      active: "font-bold",
-    },
-  },
-});
-
 interface HeaderProps
   extends Omit<React.HTMLAttributes<HTMLBaseElement>, "children">,
     VariantProps<typeof headerVariants>,
-    VariantProps<typeof navigationItemVariants>,
     Pick<PageLayoutProps, "location" | "pageData"> {}
 
-const Header: React.FC<HeaderProps> = ({ location, pageData, className, itemVariant }) => {
+const Header: React.FC<HeaderProps> = ({ location, pageData, className, ...props }) => {
   const getActiveStyle = useCallback(
     (page: Pages) => {
       if (!location || page !== location.pathname) {
@@ -41,7 +32,7 @@ const Header: React.FC<HeaderProps> = ({ location, pageData, className, itemVari
   );
 
   return (
-    <header className={cn(headerVariants(), className)}>
+    <header className={cn(headerVariants(), className)} {...props}>
       <Link to="/" className="flex h-10 items-center">
         <H3 className="text-lg md:text-xl">kangjae.dev</H3>
       </Link>
