@@ -26,7 +26,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
     <BaseLayout>
       <div className={cn(pageLayoutVariants(), className)}>
         {!hideHeader && <Header location={location} pageData={pageData} />}
-        <div className="h-full w-full px-4 py-4 lg:px-0">{children}</div>
+        <div className="h-full w-full px-4 py-4 md:px-0">{children}</div>
         {!hideFooter && <div>footer</div>}
       </div>
     </BaseLayout>

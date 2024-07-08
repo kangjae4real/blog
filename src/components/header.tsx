@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { PageLayoutProps } from "@/components/layouts/page-layout";
 
-const headerVariants = cva("w-full h-14 px-4 lg:px-0 flex justify-between items-center border-b");
+const headerVariants = cva("w-full h-14 px-4 md:px-0 flex justify-between items-center border-b");
 
 const navigationItemVariants = cva("", {
   variants: {
@@ -43,7 +43,7 @@ const Header: React.FC<HeaderProps> = ({ location, pageData, className, itemVari
   return (
     <header className={cn(headerVariants(), className)}>
       <Link to="/" className="flex h-10 items-center">
-        <H3>kangjae.dev</H3>
+        <H3 className="text-lg md:text-xl">kangjae.dev</H3>
       </Link>
 
       <NavigationMenu>

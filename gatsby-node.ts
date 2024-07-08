@@ -10,6 +10,7 @@ export const onCreateWebpackConfig: OnCreateWebpackConfigType = ({ actions }) =>
         "@/components": path.resolve(__dirname, "src/components"),
         "@/lib/utils": path.resolve(__dirname, "src/lib/utils"),
         "@/lib/pages": path.resolve(__dirname, "src/lib/pages"),
+        "@constants": path.resolve(__dirname, "./constants"),
       },
     },
   });

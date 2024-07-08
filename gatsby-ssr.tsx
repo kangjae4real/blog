@@ -1,6 +1,6 @@
 import React from "react";
 import { RenderBodyArgs } from "gatsby";
-import { INTER_FONTS } from "./constant";
+import { INTER_FONTS } from "@constants";
 
 type OnRenderBodyType = (params: RenderBodyArgs) => void;
 

@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 const baseLayoutVariants = cva("h-full", {
   variants: {
     size: {
-      default: "w-full max-w-5xl mx-auto",
+      default: "w-full max-w-3xl mx-auto",
       full: "w-full",
     },
   },
