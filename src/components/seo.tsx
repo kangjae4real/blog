@@ -1,23 +1,30 @@
-import React from "react";
+import React, { useMemo } from "react";
+import { useSiteMetadata } from "@/hooks/useSiteMetadata";
 
 interface SEOProps {
-  title?: string;
   titleSuffix?: string;
   children?: React.ReactNode;
 }
 
-const SEO: React.FC<SEOProps> = ({ title = "kangjae.dev", titleSuffix, children }) => {
-  const fullTitle = `${title} ${titleSuffix ? `- ${titleSuffix}` : ""}`;
+const SEO: React.FC<SEOProps> = ({ titleSuffix, children }) => {
+  const { siteLanguage, title, description, url } = useSiteMetadata();
+
+  const fullTitle = useMemo(() => {
+    if (!titleSuffix) {
+      return title;
+    }
+    return `${title} - ${titleSuffix}`;
+  }, [title, titleSuffix]);
 
   return (
     <>
-      <html lang="ko" />
+      <html lang={siteLanguage} />
       <body className="font-Inter antialiased" />
       <title>{fullTitle}</title>
-      <meta name="description" content="Kangjae Personal Dev, Tech, Daily blog" />
+      <meta name="description" content={description} />
       <meta property="og:title" content={fullTitle} />
-      <meta property="og:url" content="https://kangjae.dev" />
-      <meta property="og:description" content="Kangjae Personal Dev, Tech, Daily blog" />
+      <meta property="og:url" content={url} />
+      <meta property="og:description" content={description} />
       <meta property="og:type" content="website" />
       {children}
     </>

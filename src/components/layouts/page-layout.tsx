@@ -12,7 +12,7 @@ export interface PageLayoutProps extends React.HTMLAttributes<HTMLDivElement>, V
   hideHeader?: boolean;
   hideFooter?: boolean;
   location?: PageProps["location"];
-  pageData?: PageProps["data"];
+  containerStyle?: string;
 }
 
 const PageLayout: React.FC<PageLayoutProps> = ({
@@ -21,14 +21,14 @@ const PageLayout: React.FC<PageLayoutProps> = ({
   hideHeader = false,
   hideFooter = false,
   location,
-  pageData,
+  containerStyle,
   ...props
 }) => {
   return (
     <BaseLayout>
       <div className={cn(pageLayoutVariants(), className)} {...props}>
-        {!hideHeader && <Header location={location} pageData={pageData} />}
-        <div className="h-full w-full px-4 py-4 md:px-0">{children}</div>
+        {!hideHeader && <Header location={location} />}
+        <div className={cn("h-full w-full px-4 py-4 md:px-0", containerStyle)}>{children}</div>
         {!hideFooter && <Footer />}
       </div>
     </BaseLayout>

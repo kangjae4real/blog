@@ -17,9 +17,9 @@ const headerVariants = cva("w-full h-14 px-4 md:px-0 flex justify-between items-
 interface HeaderProps
   extends Omit<React.HTMLAttributes<HTMLBaseElement>, "children">,
     VariantProps<typeof headerVariants>,
-    Pick<PageLayoutProps, "location" | "pageData"> {}
+    Pick<PageLayoutProps, "location"> {}
 
-const Header: React.FC<HeaderProps> = ({ location, pageData, className, ...props }) => {
+const Header: React.FC<HeaderProps> = ({ location, className, ...props }) => {
   const getActiveStyle = useCallback(
     (page: Pages) => {
       if (!location || page !== location.pathname) {

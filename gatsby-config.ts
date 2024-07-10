@@ -2,25 +2,31 @@ import type { GatsbyConfig } from "gatsby";
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    siteTitle: `kangjae.dev`,
-    siteTitleAlt: `kangjae.dev`,
-    siteHeadline: `kangjae.dev`,
-    siteUrl: `https://kangjae.dev`,
-    siteDescription: `Kangjae Personal Dev, Tech, Daily blog`,
+    title: `kangjae.dev`,
+    url: `https://kangjae.dev`,
+    description: `Kangjae Personal Dev, Tech, Daily blog`,
     siteLanguage: `ko`,
-    author: `@kangjae4real`,
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin
   // Learn more at: https://gatsby.dev/graphql-typegen
-  // graphqlTypegen: true,
-  trailingSlash: "never",
+  graphqlTypegen: {
+    typesOutputPath: `${__dirname}/gatsby-types.d.ts`,
+  },
+  trailingSlash: `never`,
   plugins: [
-    "gatsby-plugin-postcss",
-    "gatsby-plugin-image",
-    "gatsby-plugin-sharp",
+    `gatsby-plugin-postcss`,
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
     {
-      resolve: "gatsby-plugin-manifest",
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `posts`,
+        path: `${__dirname}/posts`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
       options: {
         name: `kangjae.dev`,
         short_name: `kangjae.dev`,
