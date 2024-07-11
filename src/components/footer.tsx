@@ -8,9 +8,11 @@ const footerVariants = cva("w-full h-14 px-4 md:px-0 flex justify-between items-
 interface FooterProps extends Omit<HTMLAttributes<HTMLBaseElement>, "children">, VariantProps<typeof footerVariants> {}
 
 const Footer: React.FC<FooterProps> = ({ className, ...props }) => {
+  const fullYear = new Date().getFullYear();
+
   return (
     <footer className={cn(footerVariants(), className)} {...props}>
-      <Lead className="text-sm">© 2024 by Kangjae Choi. All rights reserved.</Lead>
+      <Lead className="text-sm">© {fullYear} by Kangjae Choi. All rights reserved.</Lead>
     </footer>
   );
 };
