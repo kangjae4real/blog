@@ -6,7 +6,7 @@ import { H3, Lead, Small } from "@/components/typography";
 import { navigate } from "gatsby";
 
 const postPreviewVariants = cva(
-  "cursor-pointer scale-x-100 scale-y-100 hover:scale-x-105 hover:scale-y-105 transition duration-400",
+  "cursor-pointer scale-x-100 scale-y-100 hover:scale-x-[1.01] hover:scale-y-[1.01] transition",
 );
 
 interface PostPreviewProps
