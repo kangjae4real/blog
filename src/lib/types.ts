@@ -50,3 +50,7 @@ export interface MDXNodes {
 export interface AllMDX {
   allMdx: MDXNodes;
 }
+
+export interface MDX {
+  mdx: FrontMatter;
+}
