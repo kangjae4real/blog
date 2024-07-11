@@ -1,24 +1,20 @@
 import React from "react";
-import { HeadFC, navigate, PageProps } from "gatsby";
+import { HeadFC, PageProps } from "gatsby";
 import PageLayout from "@/components/layouts/page-layout";
 import SEO from "@/components/seo";
-import { usePostsName } from "@/hooks/usePostsName";
 import List from "@/components/list";
-import { Large } from "@/components/typography";
+import useAllMDX from "@/hooks/useAllMDX";
+import PostPreview from "@/components/post-preview";
 
 const PostsPage: React.FC<PageProps> = ({ location }) => {
-  const postNames = usePostsName();
+  const posts = useAllMDX();
 
   return (
     <PageLayout location={location} containerStyle="py-12">
       <List
-        list={postNames}
-        render={({ name }) => (
-          <Large className="cursor-pointer" onClick={() => navigate(name)}>
-            {name}
-          </Large>
-        )}
-        className="gap-2"
+        list={posts}
+        render={({ frontmatter, excerpt }) => <PostPreview {...frontmatter} excerpt={excerpt} />}
+        className="gap-5"
         title="게시글"
         description="최근 게시글들을 볼 수 있습니다."
       />

@@ -2,12 +2,12 @@ export interface FileName {
   name: string;
 }
 
-export interface Nodes {
+export interface FileNodes {
   nodes: Array<FileName>;
 }
 
 export interface AllFile {
-  allFile: Nodes;
+  allFile: FileNodes;
 }
 
 export interface Metadata {
@@ -23,4 +23,30 @@ export interface SiteMetadata {
 
 export interface Site {
   site: SiteMetadata;
+}
+
+export interface ID {
+  id: string;
+}
+
+export interface Excerpt {
+  excerpt: string;
+}
+
+export interface FrontMatterData {
+  title: string;
+  date: string;
+  slug: string;
+}
+
+export interface FrontMatter {
+  frontmatter: FrontMatterData;
+}
+
+export interface MDXNodes {
+  nodes: Array<FrontMatter & ID & Excerpt>;
+}
+
+export interface AllMDX {
+  allMdx: MDXNodes;
 }

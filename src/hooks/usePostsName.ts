@@ -1,7 +1,7 @@
 import { graphql, useStaticQuery } from "gatsby";
-import { AllFile, Nodes } from "@/lib/types";
+import { AllFile, FileNodes } from "@/lib/types";
 
-type UsePostsNameParams = (limit?: number) => Nodes["nodes"];
+type UsePostsNameParams = (limit?: number) => FileNodes["nodes"];
 
 export const usePostsName: UsePostsNameParams = (limit) => {
   const data = useStaticQuery<AllFile>(graphql`
