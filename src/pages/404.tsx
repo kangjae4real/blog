@@ -9,4 +9,4 @@ const NotFoundPage: React.FC<PageProps> = () => {
 
 export default NotFoundPage;
 
-export const Head: HeadFC = () => <SEO title="Not Found" />;
+export const Head: HeadFC = () => <SEO />;

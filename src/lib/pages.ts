@@ -1,7 +1,6 @@
 export const INDEX_PAGE = "/";
 
 export const POSTS_PAGE = "/posts";
-export const getPosts = (index: number) => `${POSTS_PAGE}/${index}`;
 
 export const RESUME_PAGE = "/resume";
 
