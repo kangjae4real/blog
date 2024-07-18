@@ -33,10 +33,37 @@ export interface Excerpt {
   excerpt: string;
 }
 
+export interface Images {
+  fallback: {
+    src: string;
+    srcSet: string;
+    sizes: string;
+  };
+  sources: Array<string>;
+}
+
+export interface GatsbyImageData {
+  layout: string;
+  backgroundColor: string;
+  images: Images;
+  width: number;
+  height: number;
+}
+
+export interface ChildImageSharp {
+  gatsbyImageData: GatsbyImageData;
+}
+
+export interface ThumbnailImage {
+  childImageSharp: ChildImageSharp;
+}
+
 export interface FrontMatterData {
   title: string;
   date: string;
   slug: string;
+  thumbnail_image: ThumbnailImage;
+  thumbnail_image_alt: string;
 }
 
 export interface FrontMatter {

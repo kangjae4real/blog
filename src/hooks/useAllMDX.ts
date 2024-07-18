@@ -10,6 +10,12 @@ const useAllMDX = () => {
             title
             date(formatString: "YYYY-MM-DD")
             slug
+            thumbnail_image {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+            thumbnail_image_alt
           }
           id
           excerpt
