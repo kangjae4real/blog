@@ -3,9 +3,14 @@ import { graphql, HeadFC, PageProps } from "gatsby";
 import PageLayout from "@/components/layouts/page-layout";
 import SEO from "@/components/seo";
 import { MDX } from "@/lib/types";
+import Post from "@/components/post";
 
-const PostPage: React.FC<PageProps<MDX>> = ({ location, data, children }) => {
-  return <PageLayout location={location}>{children}</PageLayout>;
+const PostPage: React.FC<PageProps<MDX>> = ({ location, data: post, children }) => {
+  return (
+    <PageLayout location={location}>
+      <Post post={post}>{children}</Post>
+    </PageLayout>
+  );
 };
 
 export default PostPage;
@@ -17,6 +22,12 @@ export const query = graphql`
         title
         date(formatString: "YYYY-MM-DD")
         slug
+        thumbnail_image {
+          childImageSharp {
+            gatsbyImageData
+          }
+        }
+        thumbnail_image_alt
       }
     }
   }

@@ -37,7 +37,7 @@ const PostPreview: React.FC<PostPreviewProps> = ({
   return (
     <article className={cn(postPreviewVariants(), className)} onClick={() => navigate(slug)} {...props}>
       {thumbnailImage && (
-        <div className="mr-7 h-[180px] w-[180px] rounded-lg border">
+        <div className="mr-7 h-[180px] w-[180px] rounded-lg border shadow-xl">
           <GatsbyImage image={thumbnailImage} alt={thumbnail_image_alt} className="h-full w-full" />
         </div>
       )}
