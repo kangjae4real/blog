@@ -7,7 +7,7 @@ import { navigate } from "gatsby";
 import { GatsbyImage, getImage, ImageDataLike } from "gatsby-plugin-image";
 
 const postPreviewVariants = cva(
-  "cursor-pointer scale-x-100 scale-y-100 hover:scale-x-[1.01] hover:scale-y-[1.01] transition flex flex-col items-start gap-4 md:items-center md:flex-row",
+  "cursor-pointer scale-x-100 scale-y-100 hover:scale-x-[1.01] hover:scale-y-[1.01] transition flex flex-col-reverse items-start gap-4 md:gap-0 md:justify-between md:items-center md:flex-row md:h-[86px]",
 );
 
 interface PostPreviewProps
@@ -36,17 +36,17 @@ const PostPreview: React.FC<PostPreviewProps> = ({
 
   return (
     <article className={cn(postPreviewVariants(), className)} onClick={() => navigate(slug)} {...props}>
-      {thumbnailImage && (
-        <div className="mr-0 h-[180px] w-full rounded-lg shadow-xl md:mr-7 md:w-[180px]">
-          <GatsbyImage image={thumbnailImage} alt={thumbnail_image_alt} className="h-full w-full rounded-lg" />
-        </div>
-      )}
-
       <div className="flex flex-col justify-start gap-2">
         <H3 className="font-bold">{title}</H3>
         <Lead className="text-md">{excerpt}</Lead>
         <Small>{date}</Small>
       </div>
+
+      {thumbnailImage && (
+        <div className="mr-0 h-[86px] w-full rounded-lg shadow-xl md:w-[150px]">
+          <GatsbyImage image={thumbnailImage} alt={thumbnail_image_alt} className="h-full w-full rounded-lg" />
+        </div>
+      )}
     </article>
   );
 };

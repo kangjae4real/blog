@@ -23,9 +23,10 @@ interface ListProps<Item>
     Partial<Pick<PageTitleProps, "title">>,
     Pick<PageTitleProps, "description"> {
   list: Item[];
-  render: (value: Item) => React.ReactNode;
+  render: (value: Item, index: number) => React.ReactNode;
   onClick?: (value: Item) => void;
   itemClassName?: ClassValue;
+  withSeparator?: boolean;
 }
 
 const List = <Item,>({
@@ -34,6 +35,7 @@ const List = <Item,>({
   render,
   onClick,
   itemClassName,
+  withSeparator = false,
   orientation,
   title,
   description,
@@ -48,11 +50,18 @@ const List = <Item,>({
         </>
       )}
       <ul className={cn(listVariants({ orientation }), className)} {...props}>
-        {list.map((value, index) => (
-          <li key={index} className={cn(itemClassName)} onClick={() => onClick && onClick(value)}>
-            {render(value)}
-          </li>
-        ))}
+        {list.map((value, index) => {
+          const isLast = index === list.length - 1;
+
+          return (
+            <>
+              <li key={index} className={cn(itemClassName)} onClick={() => onClick && onClick(value)}>
+                {render(value, index)}
+              </li>
+              {withSeparator && !isLast && <Separator />}
+            </>
+          );
+        })}
       </ul>
     </div>
   );
