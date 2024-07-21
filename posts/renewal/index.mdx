@@ -1,10 +1,45 @@
 ---
 title: 리뉴얼
-date: 2024-07-20
+date: 2024-07-21
 slug: renewal
 thumbnail_image: ./japan.jpeg
 thumbnail_image_alt: in-japan
 ---
 
 ## 왜 새로이 만들었나요?
-기존에 사용하던 블로그도 지금과 동일하게 `React + Gatsby` 로 작성되었다. <br />
+기존에 사용하던 블로그도 지금과 동일하게 `TypeScript + React + Gatsby` 로 작성되었다. <br />
+처음에는 잘 이용했으나 구조설계 및 디자인 등 내가 직접 만든 내용이 많이 없었다. <br />
+그저 나는 잘 만들어진 템플릿에 일부 컴포넌트만 수정하여 배포한 간단한 블로그였다. <br />
+나는 더욱 더 처음부터 나의 손길이 들어가고 라이브러리 선택 및 구조 설계를 내 입맛대로 맞춘 블로그를 새로 만들고 싶은 욕구가 생겼다. <br />
+그리고 파편화 되어 있는 나의 사이트 이력서와 포트폴리오 사이트를 한 곳으로 모아 사용성을 개선하기 위함이 또 다른 이유이다. <br />
+위와 같은 이유로 나는 프로젝트 세팅부터 개발 그리고 배포까지 모두 **내가 직접 만든** 블로그를 개발하게 되었다.
+<br />
+
+## 사용한 기술들
+기본적인 골조는 `TypeScript + React + Gatsby` 이다. <br />
+[`Gatsby`](https://www.gatsbyjs.com) 의 특성 상 File system 데이터 활용은 [`GraphQL`](https://graphql.org) 이 사용되었다. <br />
+스타일링은 [`Tailwind CSS`](https://tailwindcss.com) 을 사용하였고 UI 라이브러리로 [`shadcn/ui`](https://ui.shadcn.com) 를 활용하였다. <br />
+각각의 컴포넌트의 Variants 를 관리하기 위하여 [`cva`](https://cva.style)를 활용했다. 이 라이브러리는 Utility Type을 아주 훌륭하게 제공해준다. <br />
+그 외, MDX 파일의 Transform과 Transformed image의 용량과 Lazy loading, 반응형 대응을 위하여 Sharp 라이브러리 등 다양한 기술들을 사용했다. <br />
+추가로 최근 전역 상태 관리 도구들이 내 맘에 쏙 들지는 않아서... 굳이 사용하지는 않았다. 아니 사용을 안해도 되었다.
+<br />
+
+## 만들면서 느낀 점
+GraphQL은 회사 서비스에서도 다뤄본적이 없었고 당연히 다뤄본적이 없기에 "잘" 하는 방법도 몰랐다. <br />
+이번 기회로 Client 코드에서 Query 하는 방법과 GraphQL을 사용하기에 앞서 프로젝트 세팅하는 법을 배웠다. <br />
+그리고 개인적으로 [`styled-components(emotion)`](https://emotion.sh/docs/introduction)를 좋아하는 입장에서 처음으로 제대로 Tailwind CSS를 사용해봤다. <br />
+최근에는 스타일링을 위한 SCSS 코드를 작성하는것에 염증을 느끼고 있었는데 간단히 className 들을 활용하여 스타일링을 해결하니 그 경험이 아주 훌륭했다. <br />
+앞으로의 개인 토이 프로젝트는 모두 Tailwind CSS를 사용할 것 같다.
+<br />
+
+## 앞으로의 일들
+Header를 보면 알다 싶이 `Resume`, `Portfolio` 페이지의 내용을 채워야 한다. <br />
+이 글을 보는 시점에서 아직도 저 페이지의 내용이 없다면 열심히 정리하고 작성중이니 조금만.. 조금만.. 기다려주면... ㅎ.. <br />
+그리고 기존 블로그에서는 하지 못했던 게시글 댓글 기능을 구현하려 한다. 글을 써도 반응이 없으니 영 재미가 없었다.
+<br />
+
+## 여하튼!
+이 블로그는 나의 입맛이 잔뜩 가미된 블로그이다. <br />
+현실에 치여 게시글을 작성하고 공유하는것이 늦어졌지만 앞으로는 열심히 해보려 한다. <br />
+일기장 페이지를 만들어볼까? 이 아이디어도 괜찮은 아이디어 같다.
+
