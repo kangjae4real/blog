@@ -1,9 +1,9 @@
-import React, { useCallback } from "react";
+import React, { useMemo } from "react";
 import { cva, VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 import { Link, navigate } from "gatsby";
 import { H3, Small } from "@/components/typography";
-import { humanizePage, INDEX_PAGE, Pages, PAGES } from "@/lib/pages";
+import { humanizePage, INDEX_PAGE, Pages, PAGES, POSTS_PAGE } from "@/lib/pages";
 import {
   NavigationMenu,
   NavigationMenuList,
@@ -26,16 +26,19 @@ interface HeaderProps
 const Header: React.FC<HeaderProps> = ({ location, className, ...props }) => {
   const { md } = useBreakpoint();
 
-  const getActiveStyle = useCallback(
-    (page: Pages) => {
-      if (!location || page !== location.pathname) {
-        return "";
-      }
+  const currentPathname = useMemo(() => {
+    if (!location) {
+      return;
+    }
 
-      return "bg-accent text-accent-foreground font-bold";
-    },
-    [location],
-  );
+    let pathname = location.pathname;
+
+    if (pathname.startsWith(POSTS_PAGE)) {
+      pathname = POSTS_PAGE;
+    }
+
+    return humanizePage(pathname as Pages);
+  }, [location]);
 
   return (
     <header className={cn(headerVariants(), className)} {...props}>
@@ -49,7 +52,11 @@ const Header: React.FC<HeaderProps> = ({ location, className, ...props }) => {
             {PAGES.filter((page) => page !== INDEX_PAGE).map((page, index) => (
               <NavigationMenuItem
                 key={index}
-                className={cn(navigationMenuTriggerStyle(), getActiveStyle(page), "cursor-pointer")}
+                className={cn(
+                  navigationMenuTriggerStyle(),
+                  location?.pathname.startsWith(page) && "bg-accent font-bold text-accent-foreground",
+                  "cursor-pointer",
+                )}
                 onClick={() => navigate(page)}
               >
                 {humanizePage(page)}
@@ -61,12 +68,10 @@ const Header: React.FC<HeaderProps> = ({ location, className, ...props }) => {
         <NavigationMenu>
           <NavigationMenuList>
             <NavigationMenuItem>
-              <NavigationMenuTrigger className="w-[100px]">
-                {location?.pathname && humanizePage(location.pathname as Pages)}
-              </NavigationMenuTrigger>
+              <NavigationMenuTrigger className="w-[100px]">{currentPathname}</NavigationMenuTrigger>
               <NavigationMenuContent className="w-[100px]">
                 <List
-                  list={[...PAGES]}
+                  list={[...PAGES.filter((page) => page !== INDEX_PAGE)]}
                   className="py-2"
                   itemClassName="w-full px-2 [&:not(:first-of-type)]:pt-2"
                   onClick={(page) => navigate(page)}
