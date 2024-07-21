@@ -13,8 +13,8 @@ import {
   NavigationMenuContent,
 } from "@/components/ui/navigation-menu";
 import { PageLayoutProps } from "@/components/layouts/page-layout";
-import useWindowSize from "@/hooks/use-window-size";
 import List from "@/components/list";
+import { useBreakpoint } from "gatsby-plugin-breakpoints";
 
 const headerVariants = cva("w-full h-14 px-4 md:px-0 flex justify-between items-center border-b");
 
@@ -24,7 +24,7 @@ interface HeaderProps
     Pick<PageLayoutProps, "location"> {}
 
 const Header: React.FC<HeaderProps> = ({ location, className, ...props }) => {
-  const { width } = useWindowSize();
+  const { md } = useBreakpoint();
 
   const getActiveStyle = useCallback(
     (page: Pages) => {
@@ -43,7 +43,21 @@ const Header: React.FC<HeaderProps> = ({ location, className, ...props }) => {
         <H3 className="text-lg md:text-xl">kangjae.dev</H3>
       </Link>
 
-      {width < 768 ? (
+      {md ? (
+        <NavigationMenu>
+          <NavigationMenuList>
+            {PAGES.filter((page) => page !== INDEX_PAGE).map((page, index) => (
+              <NavigationMenuItem
+                key={index}
+                className={cn(navigationMenuTriggerStyle(), getActiveStyle(page), "cursor-pointer")}
+                onClick={() => navigate(page)}
+              >
+                {humanizePage(page)}
+              </NavigationMenuItem>
+            ))}
+          </NavigationMenuList>
+        </NavigationMenu>
+      ) : (
         <NavigationMenu>
           <NavigationMenuList>
             <NavigationMenuItem>
@@ -60,20 +74,6 @@ const Header: React.FC<HeaderProps> = ({ location, className, ...props }) => {
                 />
               </NavigationMenuContent>
             </NavigationMenuItem>
-          </NavigationMenuList>
-        </NavigationMenu>
-      ) : (
-        <NavigationMenu>
-          <NavigationMenuList>
-            {PAGES.filter((page) => page !== INDEX_PAGE).map((page, index) => (
-              <NavigationMenuItem
-                key={index}
-                className={cn(navigationMenuTriggerStyle(), getActiveStyle(page), "cursor-pointer")}
-                onClick={() => navigate(page)}
-              >
-                {humanizePage(page)}
-              </NavigationMenuItem>
-            ))}
           </NavigationMenuList>
         </NavigationMenu>
       )}
