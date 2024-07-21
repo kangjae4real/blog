@@ -5,7 +5,7 @@ import { FrontMatterData } from "@/lib/types";
 import { GatsbyImage, getImage, ImageDataLike } from "gatsby-plugin-image";
 import { H1 } from "@/components/typography";
 
-const postHeadVariants = cva("relative mb-6 h-[150px] w-full rounded-lg border");
+const postHeadVariants = cva("relative mb-6 h-[150px] w-full rounded-lg shadow-xl");
 
 interface PostHeadProps
   extends Omit<React.HTMLAttributes<HTMLDivElement>, "children">,
@@ -33,7 +33,7 @@ const PostHead: React.FC<PostHeadProps> = ({
   return (
     <div className={cn(postHeadVariants())} {...props}>
       <div className="h-full w-full">
-        <GatsbyImage image={thumbnail} alt={thumbnail_image_alt} className="h-full w-full object-cover" />
+        <GatsbyImage image={thumbnail} alt={thumbnail_image_alt} className="h-full w-full rounded-lg" />
       </div>
       <div className="absolute left-0 top-0 h-full w-full rounded-lg bg-black opacity-50" />
       <div className="absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%]">

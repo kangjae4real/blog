@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { useSiteMetadata } from "@/hooks/useSiteMetadata";
+import { useSiteMetadata } from "@/hooks/use-site-metadata";
 
 interface SEOProps {
   titleSuffix?: string;

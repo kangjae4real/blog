@@ -1,7 +1,7 @@
 import { graphql, useStaticQuery } from "gatsby";
 import { AllMDX } from "@/lib/types";
 
-const useAllMDX = () => {
+const useAllMdx = () => {
   const data = useStaticQuery<AllMDX>(graphql`
     query {
       allMdx(sort: { frontmatter: { date: DESC } }) {
@@ -18,7 +18,7 @@ const useAllMDX = () => {
             thumbnail_image_alt
           }
           id
-          excerpt
+          excerpt(pruneLength: 35)
         }
       }
     }
@@ -27,4 +27,4 @@ const useAllMDX = () => {
   return data.allMdx.nodes;
 };
 
-export default useAllMDX;
+export default useAllMdx;

@@ -16,8 +16,8 @@ const PostPage: React.FC<PageProps<MDX>> = ({ location, data: post, children }) 
 export default PostPage;
 
 export const query = graphql`
-  query ($id: String) {
-    mdx(id: { eq: $id }) {
+  query ($slug: String) {
+    mdx(frontmatter: { slug: { eq: $slug } }) {
       frontmatter {
         title
         date(formatString: "YYYY-MM-DD")

@@ -81,3 +81,11 @@ export interface AllMDX {
 export interface MDX {
   mdx: FrontMatter;
 }
+
+export type Heading = "h1" | "h2" | "h3" | "h4";
+
+export type List = "ul" | "ol" | "li";
+
+export type Text = "p" | "blockquote" | "code" | "a";
+
+export type ComponentsKey = Heading | List | Text;

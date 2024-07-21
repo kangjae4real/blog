@@ -3,11 +3,11 @@ import { HeadFC, PageProps } from "gatsby";
 import PageLayout from "@/components/layouts/page-layout";
 import SEO from "@/components/seo";
 import List from "@/components/list";
-import useAllMDX from "@/hooks/useAllMDX";
+import useAllMdx from "@/hooks/use-all-mdx";
 import PostPreview from "@/components/post-preview";
 
 const PostsPage: React.FC<PageProps> = ({ location }) => {
-  const posts = useAllMDX();
+  const posts = useAllMdx();
 
   return (
     <PageLayout location={location} containerStyle="py-12">

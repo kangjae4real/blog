@@ -20,7 +20,7 @@ const Post: React.FC<PostProps> = ({
   ...props
 }) => {
   return (
-    <div className={cn(postVariants(), className)} {...props}>
+    <div className={cn(postVariants(), className, "post")} {...props}>
       <PostHead frontmatter={frontmatter} />
       <MDXProvider components={COMPONENT_MAP}>{children}</MDXProvider>
     </div>
