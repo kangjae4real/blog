@@ -34,14 +34,6 @@ const config: GatsbyConfig = {
       },
     },
     {
-      resolve: `gatsby-plugin-breakpoints`,
-      options: {
-        queries: {
-          md: "(min-width: 768px)",
-        },
-      },
-    },
-    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `posts`,
