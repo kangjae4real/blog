@@ -34,7 +34,7 @@ const Header: React.FC<HeaderProps> = ({ location, className, ...props }) => {
               className={cn(
                 navigationMenuTriggerStyle(),
                 location?.pathname.startsWith(page) && "bg-accent font-bold text-accent-foreground",
-                "py-1 px-2 md:py-2 md:px-4",
+                "px-2 py-1 md:px-4 md:py-2",
                 "cursor-pointer",
               )}
               onClick={() => navigate(page)}
