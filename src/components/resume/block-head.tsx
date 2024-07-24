@@ -3,11 +3,9 @@ import { Career } from "@/values/resume";
 import { cn } from "@/lib/utils";
 import { H3, P, Small } from "@/components/typography";
 
-interface CareerBlockHeadProps
-  extends Omit<React.HTMLAttributes<HTMLDivElement>, "children">,
-    Omit<Career, "projects"> {}
+interface BlockHeadProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "children">, Omit<Career, "projects"> {}
 
-const CareerBlockHead: React.FC<CareerBlockHeadProps> = ({
+const BlockHead: React.FC<BlockHeadProps> = ({
   className,
   company,
   joinedAt,
@@ -36,4 +34,4 @@ const CareerBlockHead: React.FC<CareerBlockHeadProps> = ({
   );
 };
 
-export default CareerBlockHead;
+export default BlockHead;

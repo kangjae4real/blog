@@ -1,13 +1,12 @@
 import React from "react";
 import { Project } from "@/values/resume";
 import { cn } from "@/lib/utils";
-import { H3, H4, Large, Lead, P, Small } from "@/components/typography";
-import List from "@/components/list";
+import { Large, Lead, Small } from "@/components/typography";
 import InnerBlock from "@/components/resume/inner-block";
 
-interface CareerBlockBodyProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "children" | "title">, Project {}
+interface BlockBodyProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "children" | "title">, Project {}
 
-const CareerBlockBody: React.FC<CareerBlockBodyProps> = ({
+const BlockBody: React.FC<BlockBodyProps> = ({
   className,
   title,
   description,
@@ -23,9 +22,11 @@ const CareerBlockBody: React.FC<CareerBlockBodyProps> = ({
     <div className={cn("mt-4 grid grid-cols-1 md:grid-cols-[50%_50%]", className)} {...props}>
       <div className="w-full">
         <Large>{title}</Large>
-        <Lead className="text-md">
-          {startedAt} - {endAt}
-        </Lead>
+        {startedAt && endAt && (
+          <Lead className="text-md">
+            {startedAt} - {endAt}
+          </Lead>
+        )}
         <InnerBlock title="사용기술" list={tech} />
       </div>
 
@@ -38,4 +39,4 @@ const CareerBlockBody: React.FC<CareerBlockBodyProps> = ({
   );
 };
 
-export default CareerBlockBody;
+export default BlockBody;
