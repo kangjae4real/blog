@@ -11,9 +11,15 @@ const listVariants = cva("w-full h-full", {
       horizontal: "flex gap-2",
       vertical: "flex flex-col",
     },
+    variants: {
+      default: "list-none",
+      decimal: "list-decimal pl-[14px]",
+      disc: "list-disc pl-[14px]",
+    },
   },
   defaultVariants: {
     orientation: "vertical",
+    variants: "default",
   },
 });
 
@@ -37,6 +43,7 @@ const List = <Item,>({
   itemClassName,
   withSeparator = false,
   orientation,
+  variants,
   title,
   description,
   ...props
@@ -49,7 +56,7 @@ const List = <Item,>({
           <Separator className="my-4" />
         </>
       )}
-      <ul className={cn(listVariants({ orientation }), className)} {...props}>
+      <ul className={cn(listVariants({ orientation, variants }), className)} {...props}>
         {list.map((value, index) => {
           const isLast = index === list.length - 1;
 
