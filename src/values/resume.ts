@@ -323,3 +323,21 @@ export const SKILLS: Skills[] = [
     skills: COMMUNICATION,
   },
 ];
+
+export interface Education {
+  school: string;
+  department: string;
+  admissionAt: string;
+  graduationAt: string;
+  isGraduated?: boolean;
+}
+
+export const EDUCATION: Education[] = [
+  {
+    school: "세명컴퓨터고등학교",
+    department: "스마트콘텐츠학과",
+    admissionAt: "2018.03",
+    graduationAt: "2021.03",
+    isGraduated: true,
+  },
+];
