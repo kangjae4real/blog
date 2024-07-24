@@ -89,3 +89,7 @@ export type List = "ul" | "ol" | "li";
 export type Text = "p" | "blockquote" | "code" | "a";
 
 export type ComponentsKey = Heading | List | Text;
+
+export type Entries<T> = {
+  [K in keyof T]: [K, T[K]];
+}[keyof T][];
