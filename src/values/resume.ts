@@ -332,12 +332,47 @@ export interface Education {
   isGraduated?: boolean;
 }
 
-export const EDUCATION: Education[] = [
+export const EDUCATIONS: Education[] = [
   {
     school: "세명컴퓨터고등학교",
     department: "스마트콘텐츠학과",
     admissionAt: "2018.03",
     graduationAt: "2021.03",
     isGraduated: true,
+  },
+];
+
+export interface Military {
+  startedAt: string;
+  endAt: string;
+  type: string;
+  moveType: string;
+}
+
+export const MILITARY_ISSUE: Military = {
+  startedAt: "2022.11.17",
+  endAt: "2025.09.16",
+  type: "현역",
+  moveType: "현역 전직",
+};
+
+export const humanizeMilitaryIssue = (key: keyof Military) => {
+  return {
+    startedAt: "시작일",
+    endAt: "종료일",
+    type: "병역 유형",
+    moveType: "전직 유형",
+  }[key];
+};
+
+export interface Issue {
+  description: string;
+  military?: Military;
+}
+
+export const ISSUES: Issue[] = [
+  {
+    description: "병역특례 산업기능요원으로 복무(근무)중입니다.",
+    military: MILITARY_ISSUE,
   },
 ];

@@ -90,6 +90,14 @@ export type Text = "p" | "blockquote" | "code" | "a";
 
 export type ComponentsKey = Heading | List | Text;
 
+export type Keys<T> = {
+  [K in keyof T]: K;
+}[keyof T][];
+
+export type Values<T> = {
+  [K in keyof T]: T[K];
+}[keyof T][];
+
 export type Entries<T> = {
   [K in keyof T]: [K, T[K]];
 }[keyof T][];

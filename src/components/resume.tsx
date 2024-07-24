@@ -7,6 +7,7 @@ import SideProjectBlock from "@/components/resume/side-project-block";
 import ActivityBlock from "@/components/resume/activity-block";
 import SkillsBlock from "@/components/resume/skills-block";
 import EducationBlock from "@/components/resume/education-block";
+import IssueBlock from "@/components/resume/issue-block";
 
 interface ResumeProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "children"> {}
 
@@ -20,6 +21,7 @@ const Resume: React.FC<ResumeProps> = ({ className, ...props }) => {
       <ActivityBlock />
       <SkillsBlock />
       <EducationBlock />
+      <IssueBlock />
     </div>
   );
 };
