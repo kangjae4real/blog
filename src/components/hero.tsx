@@ -21,7 +21,7 @@ const Hero: React.FC<HeroProps> = ({ className, ...props }) => {
   return (
     <div className={cn(heroVariants(), className)} {...props}>
       <div className="flex w-full items-center justify-center">
-        <div className="h-[230px] w-[230px] rounded-xl bg-[url(/images/selfie.webp)] bg-cover bg-no-repeat" />
+        <div className="h-[230px] w-[230px] rounded-xl bg-[url(/images/selfie.webp)] bg-cover bg-no-repeat shadow-xl" />
       </div>
 
       <div className="flex w-full flex-col items-center justify-center gap-2">
