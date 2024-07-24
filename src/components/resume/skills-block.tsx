@@ -9,7 +9,7 @@ const SkillsBlock: React.FC = () => {
   return (
     <Block title="다루는 기술">
       {SKILLS.map(({ title, skills }, index) => (
-        <div key={index} className="[&:not(:first-of-type)]:mt-2">
+        <div key={index} className="[&:not(:first-child)]:mt-2">
           <TitledBlock title={title}>
             <List
               list={skills}

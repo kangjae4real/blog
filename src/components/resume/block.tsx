@@ -11,7 +11,7 @@ interface BlockProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "childre
 
 const Block: React.FC<BlockProps> = ({ className, title, content, children, ...props }) => {
   return (
-    <div className={cn("[&:not(:first-of-type)]:mt-6", className)} {...props}>
+    <div className={cn("[&:not(:first-child)]:mt-6", className)} {...props}>
       <H2>{title}</H2>
       <Separator className="my-4" />
       {content

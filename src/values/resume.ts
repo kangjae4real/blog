@@ -68,7 +68,7 @@ export const IBK_AI_PLACEMENT: Project = {
 
 export const DOCZIP: Project = {
   title: "DOCZIP",
-  description: "유료사용자 50,000명의 서비스로 반응형 웹 주소지 검색 및 공부\n열람 서비스입니다.",
+  description: "유료사용자 50,000명의 서비스로 반응형 웹 주소지\n검색 및 공부 열람 서비스입니다.",
   link: "https://doczip.kr",
   startedAt: "2021.09",
   endAt: "현재",
@@ -87,7 +87,7 @@ export const DOCZIP: Project = {
 
 export const BLITZ_CORE_WEB: Project = {
   title: "Blitz Core Web (서비스 종료)",
-  description: "탱커의 외부 직원 및 은행원이 간편하게 Blitz API를 이용할 수\n있도록 개발된 반응형 웹 서비스입니다.",
+  description: "탱커의 외부 직원 및 은행원이 간편하게 Blitz API를\n이용할 수 있도록 개발된 반응형 웹 서비스입니다.",
   startedAt: "2021.09",
   endAt: "2022.11",
   tech: ["TypeScript", "Next.js", "styled-components", "Redux Observable"],
@@ -135,7 +135,7 @@ export const CRYPTO_QUANT: Project = {
 
 export const JYP_PARTNERS: Project = {
   title: "JYP Partners 사이트 개발",
-  description: "Next.js 베이스 반응형 웹사이트입니다.\nJYP Partners를 소개하며, 공지사항 등을 확인할 수 있습니다.",
+  description: "Next.js 베이스 반응형 웹사이트입니다.\nJYP Partners를 소개하며, 공지사항 등을\n확인할 수 있습니다.",
   link: "https://jyppartners.com",
   tech: ["TypeScript", "Next.js", "styled-components", "Zustand"],
   work: [
@@ -167,7 +167,7 @@ export const ON_PREMISE_ISSUE_TRACKER: Project = {
 
 export const XION_ITS_PMS_APP: Project = {
   title: "Xion ITS PMS Application 개발",
-  description: "Xion ITS 에서 진행하는 On-premise Application 의\nFront-end 파트 리더로 참여하였습니다.",
+  description: "Xion ITS 에서 진행하는 On-premise Application의\nFront-end 파트 리더로 참여하였습니다.",
   tech: ["TypeScript", "React", "styled-components", "Recoil"],
   work: [
     "프로젝트 베이스 코드를 확장가능한 구조로 작성하고\n바로 기능 개발에 돌입할 수 있도록 프로젝트 셋업을\n진행하였습니다.",

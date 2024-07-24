@@ -3,8 +3,18 @@ import Block from "@/components/resume/block";
 import { humanizeProfile, Profiles, PROFILES } from "@/values/resume";
 import { Entries } from "@/lib/types";
 import { Large, Small } from "@/components/typography";
+import { Button } from "@/components/ui/button";
+import { LinkOutlined } from "@ant-design/icons";
 
 const ProfileBlock: React.FC = () => {
+  const onLinkClick = (url: string) => {
+    if (typeof window === "undefined") {
+      return;
+    }
+
+    window.open(url);
+  };
+
   return (
     <Block title="프로필">
       <div className="flex w-full flex-col items-center gap-4 md:flex-row md:gap-0">
@@ -19,7 +29,13 @@ const ProfileBlock: React.FC = () => {
                 <Large className="font-bold">{humanizeProfile(key)}</Large>
               </div>
               <div className="flex items-center text-[12px] md:text-sm">
-                <Small>{value}</Small>
+                {value.startsWith("https://") ? (
+                  <Button variant="outline" size="icon" onClick={() => onLinkClick(value)}>
+                    <LinkOutlined />
+                  </Button>
+                ) : (
+                  <Small>{value}</Small>
+                )}
               </div>
             </div>
           ))}
