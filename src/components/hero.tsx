@@ -5,6 +5,7 @@ import { H1, Lead, Small } from "@/components/typography";
 import { GithubOutlined, InstagramOutlined, LinkedinOutlined, MailOutlined } from "@ant-design/icons";
 import { SOCIAL_LIST, SocialContent } from "@constants";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
+import { StaticImage } from "gatsby-plugin-image";
 
 const heroVariants = cva("flex flex-col justify-center gap-4");
 
@@ -17,11 +18,19 @@ const ICON_MAP: Record<SocialContent, React.ReactElement<HTMLSpanElement>> = {
   Mail: <MailOutlined />,
 };
 
+const SELFIE_IMAGE = "../../static/images/selfie.jpeg";
+
 const Hero: React.FC<HeroProps> = ({ className, ...props }) => {
   return (
     <div className={cn(heroVariants(), className)} {...props}>
       <div className="flex w-full items-center justify-center">
-        <div className="h-[230px] w-[230px] rounded-xl bg-[url(/images/selfie.webp)] bg-cover bg-no-repeat shadow-xl" />
+        <StaticImage
+          src={SELFIE_IMAGE}
+          alt="my-selfie"
+          className="h-[230px] w-[230px] rounded-xl shadow-xl"
+          width={230}
+          height={230}
+        />
       </div>
 
       <div className="flex w-full flex-col items-center justify-center gap-2">
