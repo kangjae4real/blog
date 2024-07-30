@@ -12,8 +12,9 @@ export interface AllFile {
 
 export interface Metadata {
   title: string;
-  url: string;
   description: string;
+  url: string;
+  image: string;
   siteLanguage: string;
 }
 
