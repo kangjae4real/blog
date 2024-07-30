@@ -36,7 +36,18 @@ export const query = graphql`
 export const Head: HeadFC<MDX> = ({
   data: {
     mdx: {
-      frontmatter: { title },
+      frontmatter: {
+        title,
+        thumbnail_image: {
+          childImageSharp: {
+            gatsbyImageData: {
+              images: {
+                fallback: { src },
+              },
+            },
+          },
+        },
+      },
     },
   },
-}) => <SEO titleSuffix={title} />;
+}) => <SEO titleSuffix={title} thumbnailImage={src} />;

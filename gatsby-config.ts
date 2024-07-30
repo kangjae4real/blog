@@ -3,8 +3,9 @@ import type { GatsbyConfig } from "gatsby";
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `kangjae.dev`,
-    url: `https://kangjae.dev`,
     description: `Kangjae Personal Dev, Tech, Daily blog`,
+    url: `https://kangjae.dev`,
+    image: `/images/selfie.jpeg`,
     siteLanguage: `ko`,
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
