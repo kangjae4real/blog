@@ -5,6 +5,9 @@ import { Entries } from "@/lib/types";
 import { Large, Small } from "@/components/typography";
 import { Button } from "@/components/ui/button";
 import { LinkOutlined } from "@ant-design/icons";
+import { StaticImage } from "gatsby-plugin-image";
+
+const PROFILE_IMAGE = "../../../static/images/profile.jpg";
 
 const ProfileBlock: React.FC = () => {
   const onLinkClick = (url: string) => {
@@ -19,7 +22,13 @@ const ProfileBlock: React.FC = () => {
     <Block title="프로필">
       <div className="flex w-full flex-col items-center gap-4 md:flex-row md:gap-0">
         <div className="flex w-full items-center justify-center md:w-1/2">
-          <div className="h-[400px] w-full rounded-xl bg-[url(/images/profile.jpg)] bg-cover bg-[0%_12%] bg-no-repeat shadow-xl md:h-[300px] md:w-[230px] md:bg-center" />
+          <StaticImage
+            src={PROFILE_IMAGE}
+            alt="my-profile-image"
+            className="h-[300px] w-[230px] rounded-xl shadow-xl"
+            width={230}
+            height={300}
+          />
         </div>
 
         <div className="flex w-full flex-col gap-2 md:w-1/2">
