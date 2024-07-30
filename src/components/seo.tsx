@@ -4,12 +4,13 @@ import { cn } from "@/lib/utils";
 
 interface SEOProps {
   titleSuffix?: string;
+  thumbnailImage?: string;
   disableScroll?: boolean;
   children?: React.ReactNode;
 }
 
-const SEO: React.FC<SEOProps> = ({ titleSuffix, disableScroll = false, children }) => {
-  const { siteLanguage, title, description, url } = useSiteMetadata();
+const SEO: React.FC<SEOProps> = ({ titleSuffix, thumbnailImage, disableScroll = false, children }) => {
+  const { siteLanguage, description, title, url, image } = useSiteMetadata();
 
   const fullTitle = useMemo(() => {
     if (!titleSuffix) {
@@ -18,6 +19,13 @@ const SEO: React.FC<SEOProps> = ({ titleSuffix, disableScroll = false, children 
     return `${title} - ${titleSuffix}`;
   }, [title, titleSuffix]);
 
+  const thumbnail = useMemo(() => {
+    if (!thumbnailImage) {
+      return image;
+    }
+    return thumbnailImage;
+  }, [thumbnailImage, image]);
+
   return (
     <>
       <html lang={siteLanguage} />
@@ -25,8 +33,9 @@ const SEO: React.FC<SEOProps> = ({ titleSuffix, disableScroll = false, children 
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
       <meta property="og:title" content={fullTitle} />
-      <meta property="og:url" content={url} />
       <meta property="og:description" content={description} />
+      <meta property="og:url" content={url} />
+      <meta property="og:image" content={thumbnail} />
       <meta property="og:type" content="website" />
       {children}
     </>
