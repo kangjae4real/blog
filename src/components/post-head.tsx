@@ -33,7 +33,11 @@ const PostHead: React.FC<PostHeadProps> = ({
   return (
     <div className={cn(postHeadVariants())} {...props}>
       <div className="h-full w-full">
-        <GatsbyImage image={thumbnail} alt={thumbnail_image_alt} className="h-full w-full rounded-lg" />
+        <GatsbyImage
+          image={thumbnail}
+          alt={thumbnail_image_alt ?? "post-thumbnail-image"}
+          className="h-full w-full rounded-lg"
+        />
       </div>
       <div className="absolute left-0 top-0 h-full w-full rounded-lg bg-black opacity-50" />
       <div className="absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%]">
