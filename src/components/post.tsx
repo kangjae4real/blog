@@ -4,6 +4,7 @@ import { cn, COMPONENT_MAP } from "@/lib/utils";
 import { MDX } from "@/lib/types";
 import { MDXProvider } from "@mdx-js/react";
 import PostHead from "@/components/post-head";
+import Comment from "@/components/comment";
 
 const postVariants = cva("");
 
@@ -23,6 +24,7 @@ const Post: React.FC<PostProps> = ({
     <div className={cn(postVariants(), className, "post")} {...props}>
       <PostHead frontmatter={frontmatter} />
       <MDXProvider components={COMPONENT_MAP}>{children}</MDXProvider>
+      <Comment />
     </div>
   );
 };
