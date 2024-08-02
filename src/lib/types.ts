@@ -63,8 +63,8 @@ export interface FrontMatterData {
   title: string;
   date: string;
   slug: string;
-  thumbnail_image: ThumbnailImage;
-  thumbnail_image_alt: string;
+  thumbnail_image?: ThumbnailImage;
+  thumbnail_image_alt?: string;
 }
 
 export interface FrontMatter {

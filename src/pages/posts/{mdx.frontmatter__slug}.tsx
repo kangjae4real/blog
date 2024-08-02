@@ -16,8 +16,8 @@ const PostPage: React.FC<PageProps<MDX>> = ({ location, data: post, children }) 
 export default PostPage;
 
 export const query = graphql`
-  query ($slug: String) {
-    mdx(frontmatter: { slug: { eq: $slug } }) {
+  query ($id: String) {
+    mdx(id: { eq: $id }) {
       frontmatter {
         title
         date(formatString: "YYYY-MM-DD")
@@ -36,18 +36,7 @@ export const query = graphql`
 export const Head: HeadFC<MDX> = ({
   data: {
     mdx: {
-      frontmatter: {
-        title,
-        thumbnail_image: {
-          childImageSharp: {
-            gatsbyImageData: {
-              images: {
-                fallback: { src },
-              },
-            },
-          },
-        },
-      },
+      frontmatter: { title, thumbnail_image },
     },
   },
-}) => <SEO titleSuffix={title} thumbnailImage={src} />;
+}) => <SEO titleSuffix={title} thumbnailImage={thumbnail_image} />;
