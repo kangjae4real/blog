@@ -47,7 +47,7 @@ const PostHead: React.FC<PostHeadProps> = ({
       </div>
       <div className="absolute left-0 top-0 h-full w-full rounded-lg bg-black opacity-50" />
       <div className="absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%]">
-        <H1 className="text-white">{title}</H1>
+        <H1 className="text-3xl text-white md:text-4xl">{title}</H1>
       </div>
     </div>
   );
