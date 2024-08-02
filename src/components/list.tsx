@@ -61,12 +61,12 @@ const List = <Item,>({
           const isLast = index === list.length - 1;
 
           return (
-            <>
-              <li key={index} className={cn(itemClassName)} onClick={() => onClick && onClick(value)}>
+            <React.Fragment key={index}>
+              <li className={cn(itemClassName)} onClick={() => onClick && onClick(value)}>
                 {render(value, index)}
               </li>
               {withSeparator && !isLast && <Separator />}
-            </>
+            </React.Fragment>
           );
         })}
       </ul>

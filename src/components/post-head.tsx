@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { FrontMatterData } from "@/lib/types";
 import { GatsbyImage, getImage, ImageDataLike } from "gatsby-plugin-image";
 import { H1 } from "@/components/typography";
+import { Separator } from "@/components/ui/separator";
 
 const postHeadVariants = cva("relative mb-6 h-[150px] w-full rounded-lg shadow-xl");
 
@@ -26,8 +27,13 @@ const PostHead: React.FC<PostHeadProps> = ({
     return getImage(thumbnail_image as unknown as ImageDataLike);
   }, [thumbnail_image]);
 
-  if (!thumbnail || !title) {
-    return;
+  if (!thumbnail) {
+    return (
+      <>
+        <H1 className="text-black">{title}</H1>
+        <Separator className="my-4" />
+      </>
+    );
   }
 
   return (
