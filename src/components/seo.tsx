@@ -1,10 +1,11 @@
 import React, { useMemo } from "react";
 import { useSiteMetadata } from "@/hooks/use-site-metadata";
+import { ThumbnailImage } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
 interface SEOProps {
   titleSuffix?: string;
-  thumbnailImage?: string;
+  thumbnailImage?: ThumbnailImage;
   disableScroll?: boolean;
   children?: React.ReactNode;
 }
@@ -23,7 +24,7 @@ const SEO: React.FC<SEOProps> = ({ titleSuffix, thumbnailImage, disableScroll = 
     if (!thumbnailImage) {
       return image;
     }
-    return thumbnailImage;
+    return thumbnailImage.childImageSharp.gatsbyImageData.images.fallback.src;
   }, [thumbnailImage, image]);
 
   return (

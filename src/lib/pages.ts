@@ -1,6 +1,7 @@
 export const INDEX_PAGE = "/";
 
 export const POSTS_PAGE = "/posts";
+export const getPostDetailPage = (slug: string) => `${POSTS_PAGE}/${slug}`;
 
 export const RESUME_PAGE = "/resume";
 
