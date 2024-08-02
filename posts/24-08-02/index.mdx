@@ -4,20 +4,20 @@ date: "2024-08-02"
 slug: "24-08-02"
 ---
 
-## 삽질을 좀 했다.
+### 삽질을 좀 했다.
 게시글 페이지로 진입하면 Server side에서 파일들을 query한다. <br />
 기존에는 Post의 Frontmatter 중 slug를 Input으로 활용하여 특정 Post를 찾았는데 이 부분이 제대로 동작하지 않았다. <br />
 이상한 점은 `<Post />` 컴포넌트의 children으로 전달되는 게시글 내용은 정상적으로 출력이 되고 <br />
 Frontmatter만 잘못된 값이 응답으로 오는 것이였다.
 <br />
 
-## 해결한 방법
+### 해결한 방법
 특정 Post를 찾는 방법에서 Input을 slug에서 Unique ID를 활용하도록 변경하였다. <br />
 직접 Client에서 Filtering을 하지 않고 Server side에서 query해서 가져오도록 하는데 <br />
 이 부분에서 slug가 제대로 전달되지 않는 문제가 있었나 보다.
 <br />
 
-## 느낀 점
+### 느낀 점
 이 문제를 해결하려고 각종 공식 문서와 Stack overflow를 잔뜩 찾아봤다. <br />
 순수 코딩시간으로 5시간은 사용한 것 같은데 예상외로 간단하게 해결되는 문제였다. <br />
 심지어 Gatsby에서 제공하는 Nodes API를 활용해서 직접 Page를 생성하려 했다. <br />
