@@ -30,7 +30,7 @@ const SEO: React.FC<SEOProps> = ({ titleSuffix, thumbnailImage, disableScroll = 
   return (
     <>
       <html lang={siteLanguage} />
-      <body className={cn("font-Inter antialiased", disableScroll && "overflow-x-hidden")} />
+      <body className={cn("light font-Inter antialiased", disableScroll && "overflow-x-hidden")} />
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
       <meta property="og:title" content={fullTitle} />

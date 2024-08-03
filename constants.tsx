@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 
 export const FONT_TYPES = [
   "Black",
@@ -60,5 +60,44 @@ export const HTML_ATTRIBUTES: ReactProps<HTMLHtmlElement> = {
 };
 
 export const BODY_ATTRIBUTES: ReactProps<HTMLBodyElement> = {
-  className: "font-Inter antialiased",
+  className: "font-Inter antialiased light",
 };
+
+export const PRE_BODY_SCRIPT = `(function() {
+  window.__onThemeChange = function () {};
+  
+  var preferredTheme;
+  
+  try {
+    preferredTheme = localStorage.getItem("theme");
+  } catch (err) {
+    preferredTheme = "light"; // default
+  }
+  
+  window.__setPreferredTheme = function (newTheme) {
+    window.__theme = newTheme;
+    preferredTheme = newTheme;
+    document.body.className = newTheme + " font-Inter antialiased";
+    window.__onThemeChange(newTheme);
+
+    try {
+      localStorage.setItem("theme", newTheme);
+    } catch (err) {
+      localStorage.setItem("theme", "light");
+    }
+  };
+  
+  var darkQuery = window.matchMedia("(prefers-color-scheme: dark)");
+  
+  darkQuery.addListener(function (event) {
+    window.__setPreferredTheme(event.matches ? "dark" : "light");
+  });
+  
+  window.__setPreferredTheme(
+    preferredTheme || (darkQuery.matches ? "dark" : "light")
+  );
+})();`;
+
+export const PRE_BODY_SCRIPT_ELEMENT: React.ReactNode = (
+  <script key="pre-body-script" dangerouslySetInnerHTML={{ __html: PRE_BODY_SCRIPT }} />
+);
