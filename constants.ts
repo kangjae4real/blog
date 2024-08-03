@@ -1,3 +1,5 @@
+import * as React from "react";
+
 export const FONT_TYPES = [
   "Black",
   "BlackItalic",
@@ -46,3 +48,17 @@ export const SOCIAL_LIST: Social[] = [
     href: "mailto:awpe89@gmail.com",
   },
 ];
+
+type ReactProps<T extends Element> = React.DetailedHTMLProps<React.HTMLAttributes<T>, T>;
+
+export const HTML_ATTRIBUTES: ReactProps<HTMLHtmlElement> = {
+  lang: "ko",
+  className: "light",
+  style: {
+    colorScheme: "light",
+  },
+};
+
+export const BODY_ATTRIBUTES: ReactProps<HTMLBodyElement> = {
+  className: "font-Inter antialiased",
+};
