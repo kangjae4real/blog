@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { cva, VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 import { Link, navigate } from "gatsby";
@@ -25,6 +25,17 @@ interface HeaderProps
 
 const Header: React.FC<HeaderProps> = ({ location, className, ...props }) => {
   const { theme, toggleTheme } = useTheme();
+
+  const buttonContent = useMemo(() => {
+    if (!theme) {
+      return <LoadingOutlined />;
+    }
+    if (theme === "light") {
+      return <MoonIcon />;
+    }
+
+    return <SunIcon />;
+  }, [theme]);
 
   return (
     <header className={cn(headerVariants(), className)} {...props}>
@@ -53,8 +64,7 @@ const Header: React.FC<HeaderProps> = ({ location, className, ...props }) => {
         </NavigationMenu>
 
         <Button variant="outline" size="icon" disabled={!theme} onClick={() => toggleTheme()}>
-          {!theme && <LoadingOutlined />}
-          {theme === "light" ? <MoonIcon /> : <SunIcon />}
+          {buttonContent}
         </Button>
       </div>
     </header>
