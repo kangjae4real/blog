@@ -12,9 +12,8 @@ import {
 } from "@/components/ui/navigation-menu";
 import { PageLayoutProps } from "@/components/layouts/page-layout";
 import { Button } from "@/components/ui/button";
-import { SunIcon, MoonIcon } from "@radix-ui/react-icons";
+import { SunIcon, MoonIcon, UpdateIcon } from "@radix-ui/react-icons";
 import useTheme from "@/hooks/use-theme";
-import { LoadingOutlined } from "@ant-design/icons";
 
 const headerVariants = cva("w-full h-14 px-3 md:px-0 flex justify-between items-center border-b");
 
@@ -28,7 +27,7 @@ const Header: React.FC<HeaderProps> = ({ location, className, ...props }) => {
 
   const buttonContent = useMemo(() => {
     if (!theme) {
-      return <LoadingOutlined />;
+      return <UpdateIcon className="animate-spin" />;
     }
     if (theme === "light") {
       return <MoonIcon />;
