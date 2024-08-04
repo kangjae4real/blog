@@ -11,6 +11,10 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { PageLayoutProps } from "@/components/layouts/page-layout";
+import { Button } from "@/components/ui/button";
+import { SunIcon, MoonIcon } from "@radix-ui/react-icons";
+import useTheme from "@/hooks/use-theme";
+import { LoadingOutlined } from "@ant-design/icons";
 
 const headerVariants = cva("w-full h-14 px-3 md:px-0 flex justify-between items-center border-b");
 
@@ -20,30 +24,40 @@ interface HeaderProps
     Pick<PageLayoutProps, "location"> {}
 
 const Header: React.FC<HeaderProps> = ({ location, className, ...props }) => {
+  const { theme, toggleTheme } = useTheme();
+  console.log("theme: ", theme);
+
   return (
     <header className={cn(headerVariants(), className)} {...props}>
       <Link to="/" className="flex h-10 items-center">
         <H3 className="text-lg md:text-xl">kangjae.dev</H3>
       </Link>
 
-      <NavigationMenu>
-        <NavigationMenuList>
-          {PAGES.filter((page) => page !== INDEX_PAGE).map((page, index) => (
-            <NavigationMenuItem
-              key={index}
-              className={cn(
-                navigationMenuTriggerStyle(),
-                location?.pathname.startsWith(page) && "bg-accent font-bold text-accent-foreground",
-                "px-2 py-1 md:px-4 md:py-2",
-                "cursor-pointer",
-              )}
-              onClick={() => navigate(page)}
-            >
-              {humanizePage(page)}
-            </NavigationMenuItem>
-          ))}
-        </NavigationMenuList>
-      </NavigationMenu>
+      <div className="flex items-center justify-between gap-2">
+        <NavigationMenu>
+          <NavigationMenuList>
+            {PAGES.filter((page) => page !== INDEX_PAGE).map((page, index) => (
+              <NavigationMenuItem
+                key={index}
+                className={cn(
+                  navigationMenuTriggerStyle(),
+                  location?.pathname.startsWith(page) && "bg-accent font-bold text-accent-foreground",
+                  "px-2 py-1 md:px-4 md:py-2",
+                  "cursor-pointer",
+                )}
+                onClick={() => navigate(page)}
+              >
+                {humanizePage(page)}
+              </NavigationMenuItem>
+            ))}
+          </NavigationMenuList>
+        </NavigationMenu>
+
+        <Button variant="outline" size="icon" disabled={!theme} onClick={() => toggleTheme()}>
+          {!theme && <LoadingOutlined />}
+          {theme === "light" ? <MoonIcon /> : <SunIcon />}
+        </Button>
+      </div>
     </header>
   );
 };

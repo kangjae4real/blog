@@ -53,14 +53,10 @@ type ReactProps<T extends Element> = React.DetailedHTMLProps<React.HTMLAttribute
 
 export const HTML_ATTRIBUTES: ReactProps<HTMLHtmlElement> = {
   lang: "ko",
-  className: "light",
-  style: {
-    colorScheme: "light",
-  },
 };
 
 export const BODY_ATTRIBUTES: ReactProps<HTMLBodyElement> = {
-  className: "font-Inter antialiased light",
+  className: "font-Inter antialiased bg-background",
 };
 
 export const PRE_BODY_SCRIPT = `(function() {
@@ -71,19 +67,17 @@ export const PRE_BODY_SCRIPT = `(function() {
   try {
     preferredTheme = localStorage.getItem("theme");
   } catch (err) {
-    preferredTheme = "light"; // default
   }
   
   window.__setPreferredTheme = function (newTheme) {
     window.__theme = newTheme;
     preferredTheme = newTheme;
-    document.body.className = newTheme + " font-Inter antialiased";
+    document.body.className = newTheme + " font-Inter antialiased bg-background";
     window.__onThemeChange(newTheme);
 
     try {
       localStorage.setItem("theme", newTheme);
     } catch (err) {
-      localStorage.setItem("theme", "light");
     }
   };
   
