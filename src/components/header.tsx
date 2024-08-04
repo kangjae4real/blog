@@ -25,7 +25,6 @@ interface HeaderProps
 
 const Header: React.FC<HeaderProps> = ({ location, className, ...props }) => {
   const { theme, toggleTheme } = useTheme();
-  console.log("theme: ", theme);
 
   return (
     <header className={cn(headerVariants(), className)} {...props}>
