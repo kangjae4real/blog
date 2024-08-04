@@ -1,6 +1,6 @@
 import React from "react";
 import { RenderBodyArgs } from "gatsby";
-import { HTML_ATTRIBUTES, BODY_ATTRIBUTES, INTER_FONTS, PRE_BODY_SCRIPT_ELEMENT } from "./constants";
+import { HTML_ATTRIBUTES, BODY_ATTRIBUTES, INTER_FONTS, PRE_BODY_SCRIPT_ELEMENT } from "@constants";
 
 export const onRenderBody = ({
   setHtmlAttributes,

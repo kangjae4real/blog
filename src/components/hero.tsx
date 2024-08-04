@@ -3,7 +3,7 @@ import { cva, VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 import { H1, Lead, Small } from "@/components/typography";
 import { GithubOutlined, InstagramOutlined, LinkedinOutlined, MailOutlined } from "@ant-design/icons";
-import { SOCIAL_LIST, SocialContent } from "../../constants";
+import { SOCIAL_LIST, SocialContent } from "@constants";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 import { StaticImage } from "gatsby-plugin-image";
 
