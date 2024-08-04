@@ -30,7 +30,7 @@ const PostHead: React.FC<PostHeadProps> = ({
   if (!thumbnail) {
     return (
       <>
-        <H1 className="text-black">{title}</H1>
+        <H1>{title}</H1>
         <Separator className="my-4" />
       </>
     );

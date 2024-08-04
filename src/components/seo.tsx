@@ -1,7 +1,6 @@
 import React, { useMemo } from "react";
 import { useSiteMetadata } from "@/hooks/use-site-metadata";
 import { ThumbnailImage } from "@/lib/types";
-import { cn } from "@/lib/utils";
 
 interface SEOProps {
   titleSuffix?: string;
@@ -30,7 +29,6 @@ const SEO: React.FC<SEOProps> = ({ titleSuffix, thumbnailImage, disableScroll = 
   return (
     <>
       <html lang={siteLanguage} />
-      <body className={cn("font-Inter antialiased", disableScroll && "overflow-x-hidden")} />
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
       <meta property="og:title" content={fullTitle} />
