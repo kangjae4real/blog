@@ -3,6 +3,7 @@ import Giscus, { Repo } from "@giscus/react";
 import { cva, VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 import { H4 } from "@/components/typography";
+import useTheme from "@/hooks/use-theme";
 
 const commentVariants = cva("mt-6");
 
@@ -11,6 +12,8 @@ interface CommentProps
     VariantProps<typeof commentVariants> {}
 
 const Comment: React.FC<CommentProps> = ({ className, ...props }) => {
+  const { theme } = useTheme();
+
   if (
     !process.env.GATSBY_REPO ||
     !process.env.GATSBY_REPO_ID ||
@@ -27,6 +30,7 @@ const Comment: React.FC<CommentProps> = ({ className, ...props }) => {
   return (
     <div className={cn(commentVariants(), className)} {...props}>
       <Giscus
+        theme={theme ?? "light"}
         repo={process.env.GATSBY_REPO as Repo}
         repoId={process.env.GATSBY_REPO_ID}
         category={process.env.GATSBY_CATEGORY}
@@ -36,7 +40,6 @@ const Comment: React.FC<CommentProps> = ({ className, ...props }) => {
         reactionsEnabled="1"
         emitMetadata="0"
         inputPosition="top"
-        theme="light"
         lang="ko"
         loading="lazy"
       />
