@@ -15,6 +15,8 @@ import { Button } from "@/components/ui/button";
 import { SunIcon, MoonIcon, UpdateIcon } from "@radix-ui/react-icons";
 import useTheme from "@/hooks/use-theme";
 
+export const HEADER_HEIGHT = 56;
+
 const headerVariants = cva("w-full h-14 px-3 md:px-0 flex justify-between items-center border-b");
 
 interface HeaderProps
