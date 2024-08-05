@@ -16,6 +16,11 @@ const tailwindCssConfig = {
       fontFamily: {
         Inter: ["Inter"],
       },
+      height: {
+        header: "var(--header-height)",
+        footer: "var(--footer-height)",
+        containerFullHeight: "var(--container-full-height)",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
