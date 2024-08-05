@@ -7,7 +7,7 @@ import { SOCIAL_LIST, SocialContent } from "@constants";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 import { StaticImage } from "gatsby-plugin-image";
 
-const heroVariants = cva("flex flex-col justify-center gap-4");
+const heroVariants = cva("w-full h-full flex flex-col justify-center gap-4");
 
 interface HeroProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "children">, VariantProps<typeof heroVariants> {}
 
