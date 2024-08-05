@@ -33,6 +33,11 @@
     --ring: 222.2 84% 4.9%;
 
     --radius: 0.5rem;
+
+    --header-height: 56px;
+    --footer-height: 56px;
+    --container-height: calc(var(--header-height) + var(--footer-height));
+    --container-full-height: calc(100vh - var(--container-height));
   }
 
   .dark {
