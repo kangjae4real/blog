@@ -3,7 +3,7 @@ import { cva, VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 import { FrontMatterData } from "@/lib/types";
 import { GatsbyImage, getImage, ImageDataLike } from "gatsby-plugin-image";
-import { H1, H2, Lead, P } from "@/components/typography";
+import { H2, Lead, P } from "@/components/typography";
 import { Separator } from "@/components/ui/separator";
 
 const postHeadVariants = cva("relative mb-6 h-[120px] w-full rounded-lg shadow-xl md:h-[150px]");
