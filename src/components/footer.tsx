@@ -3,7 +3,9 @@ import { cva, VariantProps } from "class-variance-authority";
 import { Lead } from "@/components/typography";
 import { cn } from "@/lib/utils";
 
-const footerVariants = cva("w-full h-14 px-3 md:px-0 flex justify-between items-center border-t");
+export const FOOTER_HEIGHT = 56;
+
+const footerVariants = cva("w-full h-footer px-3 md:px-0 flex justify-between items-center border-t");
 
 interface FooterProps extends Omit<HTMLAttributes<HTMLBaseElement>, "children">, VariantProps<typeof footerVariants> {}
 

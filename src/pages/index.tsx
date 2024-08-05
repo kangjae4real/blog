@@ -6,8 +6,8 @@ import Hero from "@/components/hero";
 
 const IndexPage: React.FC<PageProps> = ({ location }) => {
   return (
-    <PageLayout location={location}>
-      <Hero />
+    <PageLayout location={location} containerStyle="py-0">
+      <Hero size="full" />
     </PageLayout>
   );
 };

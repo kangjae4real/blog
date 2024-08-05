@@ -7,7 +7,17 @@ import { SOCIAL_LIST, SocialContent } from "@constants";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 import { StaticImage } from "gatsby-plugin-image";
 
-const heroVariants = cva("flex flex-col justify-center gap-4");
+const heroVariants = cva("w-full flex flex-col justify-center gap-4", {
+  variants: {
+    size: {
+      default: "h-full",
+      full: "h-containerFullHeight",
+    },
+  },
+  defaultVariants: {
+    size: "default",
+  },
+});
 
 interface HeroProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "children">, VariantProps<typeof heroVariants> {}
 
@@ -20,9 +30,9 @@ const ICON_MAP: Record<SocialContent, React.ReactElement<HTMLSpanElement>> = {
 
 const SELFIE_IMAGE = "../../static/images/selfie.jpeg";
 
-const Hero: React.FC<HeroProps> = ({ className, ...props }) => {
+const Hero: React.FC<HeroProps> = ({ className, size, ...props }) => {
   return (
-    <div className={cn(heroVariants(), className)} {...props}>
+    <div className={cn(heroVariants({ size }), className)} {...props}>
       <div className="flex w-full items-center justify-center">
         <StaticImage
           src={SELFIE_IMAGE}
