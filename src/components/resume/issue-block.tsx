@@ -16,14 +16,18 @@ const IssueBlock: React.FC = () => {
               <TableHeader>
                 <TableRow key={index}>
                   {(Object.keys(military) as Keys<Military>).map((key, index) => (
-                    <TableHead className="text-[12px] md:text-sm">{humanizeMilitaryIssue(key)}</TableHead>
+                    <TableHead key={index} className="text-[12px] md:text-sm">
+                      {humanizeMilitaryIssue(key)}
+                    </TableHead>
                   ))}
                 </TableRow>
               </TableHeader>
               <TableBody>
                 <TableRow key={index}>
                   {(Object.keys(military) as Keys<Military>).map((key, index) => (
-                    <TableCell className="text-[12px] md:text-sm">{military[key]}</TableCell>
+                    <TableCell key={index} className="text-[12px] md:text-sm">
+                      {military[key]}
+                    </TableCell>
                   ))}
                 </TableRow>
               </TableBody>
