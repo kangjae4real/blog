@@ -59,7 +59,7 @@ export const BODY_ATTRIBUTES: ReactProps<HTMLBodyElement> = {
   className: "font-Inter antialiased bg-background",
 };
 
-export const PRE_BODY_SCRIPT = `(function() {
+export const PRE_BODY_SCRIPT: string = `(function() {
   window.__onThemeChange = function () {};
   
   var preferredTheme;
@@ -94,4 +94,21 @@ export const PRE_BODY_SCRIPT = `(function() {
 
 export const PRE_BODY_SCRIPT_ELEMENT: React.ReactNode = (
   <script key="pre-body-script" dangerouslySetInnerHTML={{ __html: PRE_BODY_SCRIPT }} />
+);
+
+export const GOOGLE_ANALYTICS_CDN_SCRIPT_ELEMENT: React.ReactNode = (
+  <script
+    key="google-analytics-cdn-script"
+    src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_ANALYTICS_ID}`}
+    async
+  />
+);
+
+export const GOOGLE_ANALYTICS_SCRIPT: string = `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${process.env.GOOGLE_ANALYTICS_ID}');`;
+
+export const GOOGLE_ANALYTICS_SCRIPT_ELEMENT: React.ReactNode = (
+  <script key="google-analytics-script" dangerouslySetInnerHTML={{ __html: GOOGLE_ANALYTICS_SCRIPT }} />
 );
