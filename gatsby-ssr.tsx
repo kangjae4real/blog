@@ -15,7 +15,8 @@ export const onRenderBody = ({
   setPreBodyComponents,
   setHeadComponents,
 }: RenderBodyArgs) => {
-  const googleAnalyticsScripts = [GOOGLE_ANALYTICS_CDN_SCRIPT_ELEMENT, GOOGLE_ANALYTICS_SCRIPT_ELEMENT];
+  const googleAnalyticsScripts =
+    process.env.NODE_ENV === "production" ? [GOOGLE_ANALYTICS_CDN_SCRIPT_ELEMENT, GOOGLE_ANALYTICS_SCRIPT_ELEMENT] : [];
   const fonts = INTER_FONTS.map((font) => (
     <link key={font} href={`/fonts/${font}.woff2`} rel="preload" as="font" type="font/woff2" crossOrigin="anonymous" />
   ));
