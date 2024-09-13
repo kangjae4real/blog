@@ -1,7 +1,7 @@
 {
   "name": "blog",
   "version": "1.0.0",
-  "private": true,
+  "private": false,
   "description": "Blog written by Kangjae Choi",
   "author": "Kangjae Choi",
   "scripts": {
