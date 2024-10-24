@@ -8,7 +8,6 @@
 - `/`
 - `/posts`
 - `/resume`
-- `/portfolio`
 
 ## Run locally
 ```shell
